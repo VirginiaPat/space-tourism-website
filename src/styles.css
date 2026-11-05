@@ -1,0 +1,214 @@
+@import "tailwindcss";
+
+@custom-variant hocus {
+  &:focus-visible {
+    @slot;
+  }
+  @media (hover: hover) {
+    &:hover {
+      @slot;
+    }
+  }
+}
+
+@theme {
+  /* Custom colors */
+  --color-dark-blue: #0b0d17;
+  /* --color-blue-900: #0b0d17; */
+  --color-light-blue: #d0d6f9;
+  /* --color-blue-300: #d0d6f9; */
+
+  --font-bellefair: "Bellefair", serif;
+  --font-barlow-condensed: "Barlow Condensed", sans-serif;
+  --font-barlow: "Barlow", sans-serif;
+
+  /* custom font sizes */
+  --text-15px: 0.9375rem;
+  --text-28px: 1.75rem;
+  --text-32px: 2rem;
+  --text-56px: 3.5rem;
+  --text-80px: 5rem;
+  --text-100px: 6.25rem;
+  --text-144px: 9rem;
+
+  --container-content: 69.375rem; /* 1110px */
+
+  --animate-fade-up: fade-up 0.6s ease-out both;
+  --animate-fade-in: fade-in 0.6s ease-out both;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      translate: 0 1.5rem;
+    }
+    to {
+      opacity: 1;
+      translate: 0 0;
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+@layer base {
+  html {
+    scrollbar-gutter: stable;
+
+    &:has(dialog[open]) {
+      overflow: hidden;
+    }
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    @apply outline-current outline-offset-4 outline-2;
+  }
+}
+
+@utility text-preset-1 {
+  @apply font-bellefair font-normal text-144px leading-[normal] tracking-normal;
+}
+
+@utility text-preset-2 {
+  @apply font-bellefair font-normal text-100px leading-[normal] tracking-normal;
+}
+
+@utility text-preset-3 {
+  @apply font-bellefair font-normal text-56px leading-[normal] tracking-normal;
+}
+
+@utility text-preset-4 {
+  @apply font-bellefair font-normal text-32px leading-[normal] tracking-normal;
+}
+
+@utility text-preset-5 {
+  @apply font-barlow-condensed font-normal text-28px leading-[normal] tracking-[4px];
+}
+
+@utility text-preset-6 {
+  @apply font-bellefair font-normal text-28px leading-[normal] tracking-normal;
+}
+
+@utility text-preset-7 {
+  @apply font-barlow-condensed font-normal text-sm leading-[normal] tracking-[2px];
+}
+
+@utility text-preset-8 {
+  @apply font-barlow-condensed font-normal text-base leading-[normal] tracking-[2px];
+}
+
+@utility text-preset-9 {
+  @apply font-barlow font-normal text-lg leading-[180%] tracking-normal;
+}
+
+@utility text-preset-10 {
+  @apply font-bellefair font-normal text-80px leading-[normal] tracking-normal;
+}
+
+@utility text-preset-11 {
+  @apply font-barlow font-normal text-15px leading-[180%] tracking-normal;
+}
+
+@utility text-preset-12 {
+  @apply font-barlow font-normal text-lg leading-[normal] tracking-normal;
+}
+
+@utility text-preset-13 {
+  @apply font-barlow font-normal text-base leading-[180%] tracking-normal;
+}
+
+@layer components {
+  .nav-link {
+    @apply relative block py-9
+  focus-visible:outline-hidden
+  before:content-[''] before:absolute before:inset-x-0 before:inset-y-7 before:pointer-events-none
+  focus-visible:before:outline-2 focus-visible:before:outline-white
+  after:content-[''] after:absolute after:inset-x-0 after:bottom-0
+  after:h-[3px] after:bg-white/50
+  after:origin-center after:scale-x-0
+  after:transition-transform after:duration-300 after:ease-out
+  motion-reduce:after:transition-none
+  hocus:after:scale-x-100
+  aria-[current=page]:after:scale-x-100 aria-[current=page]:after:bg-white;
+  }
+
+  .nav-link__number,
+  .ham-link__number {
+    @apply font-bold pr-3;
+  }
+
+  .menu-dialog {
+    /* Full-screen modal. `fixed inset-0 m-0` keeps the box in place even when the browser drops the dialog from the top layer before the exit transition ends. The panel inside is pinned to the right, so sliding the whole dialog in from the right moves the panel in. No opacity here on purpose: it would disable the panel's backdrop-filter while animating. */
+    @apply h-dvh w-full max-h-none max-w-none text-white bg-transparent focus-visible:outline-none backdrop:bg-transparent fixed inset-0 m-0 overflow-x-clip;
+
+    --menu-delay: 0s;
+    translate: 100% 0;
+    /* `display` and `overlay` use allow-discrete so the dialog stays rendered while it slides out. `pointer-events` flips after --menu-delay: instantly on close, after the animation on open. */
+    pointer-events: none;
+    transition:
+      translate 0.4s ease-out,
+      display 0.4s allow-discrete,
+      overlay 0.4s allow-discrete,
+      pointer-events 0s var(--menu-delay) allow-discrete;
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+
+    &[open] {
+      --menu-delay: 0.4s;
+      display: flex; /* only set here, otherwise it overrides the UA `display: none` and the closed menu stays focusable. */
+      translate: 0 0;
+      pointer-events: auto;
+
+      @starting-style {
+        translate: 100% 0;
+      }
+    }
+  }
+
+  .ham-item {
+    --menu-index: 1; /* Stagger index set via :nth-child instead of sibling-index(), which isn't supported in every browser yet. Add a rule when adding an item. */
+    transition:
+      opacity 0.4s ease,
+      translate 0.4s ease;
+    transition-delay: calc(var(--menu-index) * 50ms);
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+
+    @starting-style {
+      opacity: 0;
+      translate: calc(var(--menu-index) * 24px) 0;
+    }
+
+    &:nth-child(2) {
+      --menu-index: 2;
+    }
+    &:nth-child(3) {
+      --menu-index: 3;
+    }
+    &:nth-child(4) {
+      --menu-index: 4;
+    }
+  }
+
+  .ham-link {
+    @apply relative block py-1.5 pl-3 -ml-3
+    focus-visible:-outline-offset-2
+    after:content-[''] after:absolute after:inset-y-0 after:right-0
+    after:w-1 after:bg-transparent
+    after:transition-colors after:duration-300
+    motion-reduce:after:transition-none
+    not-aria-[current=page]:hocus:after:bg-white/50
+    aria-[current=page]:after:bg-white;
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "space-tourism-website",
+  "version": "1.0.0",
+  "description": "Frontend Mentor Challenge",
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "build": "parcel build \"src/*.html\""
+  },
+  "keywords": [],
+  "author": "Virginia Patrika",
+  "license": "ISC",
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.17",
+    "parcel": "^2.16.1",
+    "posthtml-include": "^2.0.1",
+    "sharp": "^0.33.5",
+    "tailwindcss": "^4.1.17"
+  }
+}

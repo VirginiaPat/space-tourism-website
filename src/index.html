@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <include src="partials/head.html"></include>
+    <title>Home | Space Tourism</title>
+  </head>
+
+  <body
+    class="relative isolate min-h-dvh flex flex-col bg-dark-blue text-white"
+  >
+    <picture
+      ><source
+        media="(min-width: 80rem)"
+        srcset="./assets/home/background-home-desktop.jpg"
+      />
+      <source
+        media="(min-width: 48rem)"
+        srcset="./assets/home/background-home-tablet.jpg"
+      />
+      <img
+        src="./assets/home/background-home-mobile.jpg"
+        alt=""
+        fetchpriority="high"
+        decoding="async"
+        class="absolute inset-0 -z-10 size-full object-cover"
+      />
+    </picture>
+
+    <include src="partials/header.html"></include>
+
+    <main
+      id="main"
+      tabindex="-1"
+      class="flex-1 focus:outline-none xl:flex xl:flex-col xl:justify-end xl:pb-32"
+    >
+      <!-- Texts container -->
+      <div
+        class="p-6 flex flex-col items-center md:p-32 xl:p-0 xl:flex-row xl:justify-between xl:mx-auto xl:w-full xl:max-w-content"
+      >
+        <div
+          class="flex flex-col items-center text-center gap-6 xl:text-start xl:items-start xl:w-135"
+        >
+          <h1 class="uppercase flex flex-col gap-6">
+            <span
+              class="text-preset-8 text-light-blue md:text-preset-5 animate-fade-up [animation-delay:100ms] motion-reduce:animate-none"
+            >
+              So, you want to travel to
+            </span>
+            <span
+              class="text-preset-10 md:text-preset-1 animate-fade-up [animation-delay:200ms] motion-reduce:animate-none"
+              >Space</span
+            >
+          </h1>
+          <p
+            class="text-preset-11 text-light-blue md:text-preset-13 xl:text-preset-9 animate-fade-up [animation-delay:300ms] motion-reduce:animate-none"
+          >
+            Let's face it; if you want to go to space, you might as well
+            genuinely go to outer space and not hover kind of on the edge of it.
+            Well sit back, and relax because we'll give you a truly out of this
+            world experience!
+          </p>
+        </div>
+        <!-- Explore Button -->
+        <a
+          href="#"
+          class="relative mt-29.75 w-36 h-36 flex items-center justify-center rounded-full bg-white uppercase text-preset-12 text-dark-blue after:content-[''] after:absolute after:-inset-22 after:-z-10 after:rounded-full after:bg-white/10 after:pointer-events-none after:opacity-0 after:transition-opacity after:duration-300 motion-reduce:after:transition-none hover:after:opacity-100 focus-visible:after:opacity-100 focus-visible:outline-white hocus:after:opacity-100 md:mt-16.5 md:w-68 md:h-68 md:text-preset-4 xl:mt-0 animate-fade-in [animation-delay:300ms] motion-reduce:animate-none"
+          >Explore</a
+        >
+      </div>
+    </main>
+  </body>
+</html>

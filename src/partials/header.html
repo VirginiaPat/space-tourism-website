@@ -1,0 +1,113 @@
+<!-- 1. Skip link -->
+<a
+  href="#main"
+  class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-dark-blue"
+  >Skip to main content</a
+>
+<!-- Header -->
+<header class="flex items-center justify-between xl:mt-10">
+  <!-- logo -->
+  <a href="./index.html" class="ml-6 my-6 md:ml-10 xl:mx-16">
+    <img
+      src="./assets/shared/logo.svg"
+      alt="Space Tourism Homepage"
+      width="48"
+      height="48"
+      class="size-10 md:size-12"
+    />
+  </a>
+  <!-- Open hamburger menu button -->
+  <button
+    id="open-menu-button"
+    type="button"
+    aria-label="Open navigation menu"
+    aria-haspopup="dialog"
+    aria-controls="ham-menu-dialog"
+    class="mr-6 my-6 cursor-pointer md:hidden"
+  >
+    <img src="./assets/shared/icon-hamburger.svg" alt="" />
+  </button>
+
+  <!-- Line -->
+  <div
+    class="hidden xl:block relative z-10 flex-1 -mr-8 h-px bg-white/25"
+  ></div>
+  <!-- Navigation menu / tablet - desktop -->
+  <nav
+    aria-label="Main menu"
+    class="hidden md:flex bg-white/5 backdrop-blur-[80px]"
+  >
+    <ul
+      class="flex gap-12 pl-19.5 pr-10 text-preset-8 uppercase text-white xl:pr-16 xl:pl-37.5"
+    >
+      <li>
+        <a href="./index.html" class="nav-link"
+          ><span aria-hidden="true" class="nav-link__number">00</span>home</a
+        >
+      </li>
+      <li>
+        <a href="#" class="nav-link"
+          ><span aria-hidden="true" class="nav-link__number">01</span
+          >destination</a
+        >
+      </li>
+      <li>
+        <a href="#" class="nav-link"
+          ><span aria-hidden="true" class="nav-link__number">02</span>crew</a
+        >
+      </li>
+      <li>
+        <a href="#" class="nav-link"
+          ><span aria-hidden="true" class="nav-link__number">03</span
+          >technology</a
+        >
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Mobile menu -->
+<dialog id="ham-menu-dialog" aria-label="Navigation menu" class="menu-dialog">
+  <!-- Button and nav container -->
+  <div
+    class="absolute right-0 flex flex-col gap-12 w-[68vw] h-full pt-8 pl-8 bg-dark-blue/15 backdrop-blur-[80px]"
+  >
+    <!-- Close hamburger menu button -->
+    <button
+      id="close-menu-button"
+      type="button"
+      aria-label="Close navigation menu"
+      autofocus
+      class="mr-6 flex self-end cursor-pointer group transition-[rotate] duration-300 ease-out hover:rotate-90 motion-reduce:hover:rotate-0"
+    >
+      <img src="./assets/shared/icon-close.svg" width="24" height="21" alt="" />
+    </button>
+    <!-- Hamburger navigation menu -->
+    <nav aria-label="Mobile menu">
+      <ul class="flex flex-col gap-8 text-preset-8 uppercase">
+        <li class="ham-item">
+          <a href="./index.html" class="ham-link"
+            ><span aria-hidden="true" class="ham-link__number">00</span>home</a
+          >
+        </li>
+        <li class="ham-item">
+          <a href="#" class="ham-link"
+            ><span aria-hidden="true" class="ham-link__number">01</span
+            >destination</a
+          >
+        </li>
+        <li class="ham-item">
+          <a href="#" class="ham-link"
+            ><span aria-hidden="true" class="ham-link__number">02</span>crew</a
+          >
+        </li>
+        <li class="ham-item">
+          <a href="#" class="ham-link"
+            ><span aria-hidden="true" class="ham-link__number">03</span
+            >technology</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
+</dialog>
