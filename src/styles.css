@@ -28,6 +28,7 @@
   --text-32px: 2rem;
   --text-56px: 3.5rem;
   --text-80px: 5rem;
+  --text-96px: 6rem;
   --text-100px: 6.25rem;
   --text-144px: 9rem;
 
@@ -60,6 +61,7 @@
 @layer base {
   html {
     scrollbar-gutter: stable;
+    @apply scroll-pt-22 md:scroll-pt-24 xl:scroll-pt-44;
 
     &:has(dialog[open]) {
       overflow: hidden;
@@ -122,6 +124,34 @@
 
 @utility text-preset-13 {
   @apply font-barlow font-normal text-base leading-[180%] tracking-normal;
+}
+
+@utility text-preset-14 {
+  @apply font-barlow-condensed font-bold text-base leading-[normal] tracking-[2.4px];
+}
+
+@utility text-preset-15 {
+  @apply font-barlow-condensed font-bold text-xl leading-[normal] tracking-[3px];
+}
+
+@utility text-preset-16 {
+  @apply font-barlow-condensed font-normal text-xl leading-[normal] tracking-[3px];
+}
+
+@utility text-preset-17 {
+  @apply font-barlow-condensed font-bold text-28px leading-[normal] tracking-[4.72px];
+}
+
+@utility text-preset-19 {
+  @apply font-bellefair font-normal text-96px leading-[normal] tracking-normal;
+}
+
+@utility text-preset-20 {
+  @apply font-bellefair font-normal text-lg leading-[normal] tracking-normal;
+}
+
+@utility text-preset-21 {
+  @apply font-bellefair font-normal text-2xl leading-[normal] tracking-normal;
 }
 
 @layer components {

@@ -7,6 +7,7 @@
 
 import { initCurrentPage } from "./current-page.js";
 import { initMenu } from "./ham-menu.js";
+import { initHeaderScroll } from "./header-scroll.js";
 
 /**
  * Starts one feature and logs its error, if any, without rethrowing.
@@ -29,6 +30,7 @@ const startFeature = (name, init) => {
 const init = () => {
   startFeature("current page", initCurrentPage);
   startFeature("menu", initMenu);
+  startFeature("header scroll", initHeaderScroll);
 };
 
 init();

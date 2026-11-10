@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <include src="partials/head.html"></include>
+    <title>Destination | Space Tourism</title>
+  </head>
+
+  <body
+    class="relative isolate min-h-dvh flex flex-col bg-dark-blue text-white"
+  >
+    <picture
+      ><source
+        media="(min-width: 80rem)"
+        srcset="./assets/destination/background-destination-desktop.jpg"
+      />
+      <source
+        media="(min-width: 48rem)"
+        srcset="./assets/destination/background-destination-tablet.jpg"
+      />
+      <img
+        src="./assets/destination/background-destination-mobile.jpg"
+        alt=""
+        fetchpriority="high"
+        decoding="async"
+        class="absolute inset-0 -z-10 size-full object-cover"
+      />
+    </picture>
+
+    <include src="partials/header.html"></include>
+
+    <main
+      id="main"
+      tabindex="-1"
+      class="p-6 focus:outline-none md:p-10 xl:pt-0 xl:pb-12"
+    >
+      <!-- Title and all the rest container -->
+      <section
+        class="flex flex-col gap-6 items-center md:items-start xl:w-full xl:mx-auto xl:max-w-content"
+      >
+        <h1 class="flex gap-6 items-center justify-center uppercase">
+          <span
+            aria-hidden="true"
+            class="text-preset-14 text-white/25 md:text-preset-15 xl:text-preset-17"
+            >01</span
+          ><span class="text-preset-8 md:text-preset-16 xl:text-preset-5"
+            >Pick your destination</span
+          >
+        </h1>
+        <!-- image and all the other container -->
+        <div class="flex flex-col gap-8 xl:flex-row">
+          <div
+            class="px-22 py-6.5 md:px-48.5 md:py-10.5 xl:px-11.75 xl:py-31.75"
+          >
+            <img
+              class="w-full max-w-111.25 mx-auto"
+              src="./assets/destination/image-moon.webp"
+              width="445"
+              height="445"
+              alt="Photograph of the Moon's surface"
+              decoding="async"
+            />
+          </div>
+
+          <!-- tabs / title / texts / line and details container  -->
+          <div
+            class="flex flex-col items-center text-center gap-6 md:px-21.75 md:py-3 xl:px-11.75 xl:py-31.75 xl:items-start xl:text-start xl:gap-10 xl:flex-1"
+          >
+            <!-- Tablist -->
+            <div
+              role="tablist"
+              aria-label="Destinations"
+              class="flex gap-8 text-preset-7 md:text-preset-8"
+            >
+              <button
+                type="button"
+                role="tab"
+                id="moon-tab"
+                aria-selected="true"
+                aria-controls="moon-content"
+                class="uppercase"
+              >
+                Moon
+              </button>
+
+              <button
+                type="button"
+                role="tab"
+                id="mars-tab"
+                aria-selected="false"
+                aria-controls="mars-content"
+                class="uppercase"
+              >
+                Mars
+              </button>
+
+              <button
+                type="button"
+                role="tab"
+                id="europa-tab"
+                aria-selected="false"
+                aria-controls="europa-content"
+                class="uppercase"
+              >
+                Europa
+              </button>
+
+              <button
+                type="button"
+                role="tab"
+                id="titan-tab"
+                aria-selected="false"
+                aria-controls="titan-content"
+                class="uppercase"
+              >
+                Titan
+              </button>
+            </div>
+
+            <!-- Tabpanels -->
+            <div id="tabpanels" class="">
+              <!-- Moon Panel -->
+              <div
+                id="moon-content"
+                role="tabpanel"
+                aria-labelledby="moon-tab"
+                tabindex="0"
+                class="flex flex-col items-center gap-4 xl:items-start"
+              >
+                <h2
+                  class="uppercase text-preset-3 md:text-preset-10 xl:text-preset-19"
+                >
+                  Moon
+                </h2>
+                <p
+                  class="text-preset-11 text-light-blue md:text-preset-13 xl:text-preset-9"
+                >
+                  See our planet as you've never seen it before. A perfect
+                  relaxing trip away to help regain perspective and come back
+                  refreshed. While you're there, take in some history by
+                  visiting the Luna 2 and Apollo 11 landing sites.
+                </p>
+              </div>
+            </div>
+
+            <!-- horizontal line -->
+            <div class="h-px bg-white/25 w-full"></div>
+
+            <!--Container with rest details  -->
+            <dl class="flex flex-col gap-6 md:flex-row">
+              <!-- Avg distance -->
+              <div class="flex flex-col gap-3 md:px-13 xl:pl-0 xl:pr-17">
+                <dt class="uppercase text-preset-7 text-light-blue">
+                  Avg. distance
+                </dt>
+                <dd class="uppercase text-preset-6">384,400 km</dd>
+              </div>
+              <!-- Est travel time -->
+              <div class="flex flex-col gap-3 md:px-16.5 xl:pl-0 xl:pr-24">
+                <dt class="uppercase text-preset-7 text-light-blue">
+                  Est. travel time
+                </dt>
+                <dd class="uppercase text-preset-6">3 days</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
