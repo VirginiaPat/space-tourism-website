@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <include src="partials/head.html"></include>
+    <title>Crew | Space Tourism</title>
+  </head>
+
+  <body
+    class="relative isolate min-h-dvh flex flex-col bg-dark-blue text-white"
+  >
+    <picture
+      ><source
+        media="(min-width: 80rem)"
+        srcset="./assets/crew/background-crew-desktop.jpg"
+      />
+      <source
+        media="(min-width: 48rem)"
+        srcset="./assets/crew/background-crew-tablet.jpg"
+      />
+      <img
+        src="./assets/crew/background-crew-mobile.jpg"
+        alt=""
+        fetchpriority="high"
+        decoding="async"
+        class="absolute inset-0 -z-10 size-full object-cover"
+      />
+    </picture>
+
+    <include src="partials/header.html"></include>
+
+    <main
+      id="main"
+      tabindex="-1"
+      class="flex flex-1 flex-col p-6 focus:outline-none md:px-10 md:pt-10 md:pb-0 xl:justify-center xl:px-0 xl:pt-0 xl:pb-12"
+    >
+      <!-- Title and all the rest container -->
+      <section
+        class="flex flex-col gap-6 items-center md:items-start xl:w-full xl:mx-auto xl:max-w-content max-xl:flex-1"
+      >
+        <h1 class="flex gap-6 items-center justify-center uppercase">
+          <span
+            aria-hidden="true"
+            class="text-preset-14 text-white/25 md:text-preset-15 xl:text-preset-17"
+            >02</span
+          ><span class="text-preset-8 md:text-preset-16 xl:text-preset-5"
+            >Meet your crew</span
+          >
+        </h1>
+        <!-- Tabpanels/tabs and image container -->
+        <div class="flex flex-col items-center gap-8 xl:flex-row max-xl:flex-1">
+          <!--  tabpanels(name / text) and  tabs  container-->
+          <div
+            class="flex flex-col items-center text-center gap-6 pt-10 min-h-79.5 md:min-h-76.25 md:px-22 xl:min-h-0 xl:px-0 xl:py-0 xl:items-start xl:text-start xl:gap-10 xl:w-134.75 xl:shrink-0 xl:h-183.5"
+          >
+            <!-- Tabpanels -->
+            <div id="tabpanels" class="xl:grid xl:flex-1 xl:content-center">
+              <!-- Douglas Hurley Panel -->
+              <div
+                id="douglas-hurley-content"
+                role="tabpanel"
+                tabindex="0"
+                aria-labelledby="douglas-hurley-tab"
+                class="flex flex-col items-center gap-6 xl:items-start"
+              >
+                <h2
+                  class="uppercase flex flex-col items-center justify-center gap-2 xl:items-start"
+                >
+                  <span
+                    class="text-preset-20 text-white/50 md:text-preset-21 xl:text-preset-4"
+                    >Commander</span
+                  ><span
+                    class="text-preset-21 md:text-preset-22 xl:text-preset-3"
+                    >Douglas Hurley</span
+                  >
+                </h2>
+                <p
+                  class="text-preset-11 text-light-blue md:text-preset-13 xl:text-preset-9"
+                >
+                  Douglas Gerald Hurley is an American engineer, former Marine
+                  Corps pilot and former NASA astronaut. He launched into space
+                  for the third time as commander of Crew Dragon Demo-2.
+                </p>
+              </div>
+            </div>
+
+            <!-- Tablist -->
+            <div
+              role="tablist"
+              aria-label="Crew members"
+              class="mt-auto flex gap-4 xl:gap-10 xl:pb-12"
+            >
+              <button
+                type="button"
+                role="tab"
+                id="douglas-hurley-tab"
+                aria-label="Douglas Hurley"
+                aria-selected="true"
+                tabindex="0"
+                aria-controls="douglas-hurley-content"
+                class="relative size-2.5 cursor-pointer rounded-full bg-white/17 transition-colors duration-300 motion-reduce:transition-none after:absolute after:-inset-2 after:content-[''] aria-selected:bg-white not-aria-selected:hocus:bg-white/50 xl:size-3.75"
+              ></button>
+
+              <button
+                type="button"
+                role="tab"
+                id="mark-shuttleworth-tab"
+                aria-label="Mark Shuttleworth"
+                aria-selected="false"
+                tabindex="-1"
+                aria-controls="mark-shuttleworth-content"
+                class="relative size-2.5 cursor-pointer rounded-full bg-white/17 transition-colors duration-300 motion-reduce:transition-none after:absolute after:-inset-2 after:content-[''] aria-selected:bg-white not-aria-selected:hocus:bg-white/50 xl:size-3.75"
+              ></button>
+
+              <button
+                type="button"
+                role="tab"
+                id="victor-glover-tab"
+                aria-label="Victor Glover"
+                aria-selected="false"
+                tabindex="-1"
+                aria-controls="victor-glover-content"
+                class="relative size-2.5 cursor-pointer rounded-full bg-white/17 transition-colors duration-300 motion-reduce:transition-none after:absolute after:-inset-2 after:content-[''] aria-selected:bg-white not-aria-selected:hocus:bg-white/50 xl:size-3.75"
+              ></button>
+
+              <button
+                type="button"
+                role="tab"
+                id="anousheh-ansari-tab"
+                aria-label="Anousheh Ansari"
+                aria-selected="false"
+                tabindex="-1"
+                aria-controls="anousheh-ansari-content"
+                class="relative size-2.5 cursor-pointer rounded-full bg-white/17 transition-colors duration-300 motion-reduce:transition-none after:absolute after:-inset-2 after:content-[''] aria-selected:bg-white not-aria-selected:hocus:bg-white/50 xl:size-3.75"
+              ></button>
+            </div>
+          </div>
+          <!-- Image container -->
+          <div class="px-7 py-1.25 md:px-30.25 md:py-0 xl:px-0 max-xl:mt-auto">
+            <img
+              src="./assets/crew/image-douglas-hurley.webp"
+              alt="Portrait of Douglas Hurley"
+              width="514"
+              height="700"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

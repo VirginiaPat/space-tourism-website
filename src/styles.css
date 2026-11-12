@@ -26,6 +26,7 @@
   --text-15px: 0.9375rem;
   --text-28px: 1.75rem;
   --text-32px: 2rem;
+  --text-40px: 2.5rem;
   --text-56px: 3.5rem;
   --text-80px: 5rem;
   --text-96px: 6rem;
@@ -152,6 +153,10 @@
 
 @utility text-preset-21 {
   @apply font-bellefair font-normal text-2xl leading-[normal] tracking-normal;
+}
+
+@utility text-preset-22 {
+  @apply font-bellefair font-normal text-40px leading-[normal] tracking-normal;
 }
 
 @layer components {
