@@ -6,6 +6,7 @@
   </head>
 
   <body
+    data-page="destination"
     class="relative isolate min-h-dvh flex flex-col bg-dark-blue text-white"
   >
     <picture
@@ -51,11 +52,12 @@
             class="px-22 py-6.5 md:px-48.5 md:py-10.5 xl:px-11.75 xl:py-31.75"
           >
             <img
+              id="destination-image"
               class="w-full max-w-111.25 mx-auto"
               src="./assets/destination/image-moon.webp"
               width="445"
               height="445"
-              alt="Photograph of the Moon's surface"
+              alt="Image of Moon"
               fetchpriority="high"
               decoding="async"
             />
@@ -69,15 +71,17 @@
             <div
               role="tablist"
               aria-label="Destinations"
-              class="flex gap-8 text-preset-7 md:text-preset-8"
+              class="flex gap-8 text-preset-7 text-light-blue md:text-preset-8"
             >
               <button
                 type="button"
                 role="tab"
                 id="moon-tab"
+                aria-label="Moon"
                 aria-selected="true"
-                aria-controls="moon-content"
-                class="uppercase"
+                tabindex="0"
+                aria-controls="destination-panel"
+                class="uppercase tab-text"
               >
                 Moon
               </button>
@@ -87,8 +91,8 @@
                 role="tab"
                 id="mars-tab"
                 aria-selected="false"
-                aria-controls="mars-content"
-                class="uppercase"
+                aria-controls="destination-panel"
+                class="uppercase tab-text"
               >
                 Mars
               </button>
@@ -98,8 +102,8 @@
                 role="tab"
                 id="europa-tab"
                 aria-selected="false"
-                aria-controls="europa-content"
-                class="uppercase"
+                aria-controls="destination-panel"
+                class="uppercase tab-text"
               >
                 Europa
               </button>
@@ -109,31 +113,30 @@
                 role="tab"
                 id="titan-tab"
                 aria-selected="false"
-                aria-controls="titan-content"
-                class="uppercase"
+                aria-controls="destination-panel"
+                class="uppercase tab-text"
               >
                 Titan
               </button>
             </div>
 
             <!-- Tabpanels -->
-            <div id="tabpanels" class="">
+            <div id="tabpanels" class="min-h-53.75">
               <!-- Moon Panel -->
               <div
-                id="moon-content"
+                id="destination-panel"
                 role="tabpanel"
                 aria-labelledby="moon-tab"
                 tabindex="0"
-                class="flex flex-col items-center gap-4 xl:items-start"
+                class="flex flex-col items-center gap-4 xl:items-start focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-8"
               >
                 <h2
+                  id="destination-name"
                   class="uppercase text-preset-3 md:text-preset-10 xl:text-preset-19"
                 >
                   Moon
                 </h2>
-                <p
-                  class="text-preset-11 text-light-blue md:text-preset-13 xl:text-preset-9"
-                >
+                <p id="destination-description" class="panel-text">
                   See our planet as you've never seen it before. A perfect
                   relaxing trip away to help regain perspective and come back
                   refreshed. While you're there, take in some history by
@@ -146,20 +149,26 @@
             <div class="h-px bg-white/25 w-full"></div>
 
             <!--Container with rest details  -->
-            <dl class="flex flex-col gap-6 md:flex-row">
+            <dl
+              class="grid grid-rows-2 items-center gap-6 w-full xl:grid-cols-2 xl:grid-rows-1"
+            >
               <!-- Avg distance -->
-              <div class="flex flex-col gap-3 md:px-13 xl:pl-0 xl:pr-17">
+              <div class="flex flex-col gap-3">
                 <dt class="uppercase text-preset-7 text-light-blue">
                   Avg. distance
                 </dt>
-                <dd class="uppercase text-preset-6">384,400 km</dd>
+                <dd id="destination-distance" class="uppercase text-preset-6">
+                  384,400 km
+                </dd>
               </div>
               <!-- Est travel time -->
-              <div class="flex flex-col gap-3 md:px-16.5 xl:pl-0 xl:pr-24">
+              <div class="flex flex-col gap-3">
                 <dt class="uppercase text-preset-7 text-light-blue">
                   Est. travel time
                 </dt>
-                <dd class="uppercase text-preset-6">3 days</dd>
+                <dd id="destination-travel" class="uppercase text-preset-6">
+                  3 days
+                </dd>
               </div>
             </dl>
           </div>

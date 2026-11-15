@@ -8,6 +8,7 @@
 import { initCurrentPage } from "./current-page.js";
 import { initMenu } from "./ham-menu.js";
 import { initHeaderScroll } from "./header-scroll.js";
+import { initDestinationTabs } from "./destination-tabs.js";
 
 /**
  * Starts one feature and logs its error, if any, without rethrowing.
@@ -23,6 +24,11 @@ const startFeature = (name, init) => {
   }
 };
 
+/** Features that only exist on one page, keyed by `data-page` on the body. */
+const pageFeatures = {
+  destination: [["destination tabs", initDestinationTabs]],
+};
+
 /**
  * Initializes all interactive features of the page.
  * @returns {void}
@@ -31,6 +37,11 @@ const init = () => {
   startFeature("current page", initCurrentPage);
   startFeature("menu", initMenu);
   startFeature("header scroll", initHeaderScroll);
+
+  const page = document.body.dataset.page ?? "";
+  (pageFeatures[page] ?? []).forEach(([name, feature]) =>
+    startFeature(name, feature),
+  );
 };
 
 init();

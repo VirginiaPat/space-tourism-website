@@ -14,9 +14,7 @@
 @theme {
   /* Custom colors */
   --color-dark-blue: #0b0d17;
-  /* --color-blue-900: #0b0d17; */
   --color-light-blue: #d0d6f9;
-  /* --color-blue-300: #d0d6f9; */
 
   --font-bellefair: "Bellefair", serif;
   --font-barlow-condensed: "Barlow Condensed", sans-serif;
@@ -30,7 +28,6 @@
   --text-56px: 3.5rem;
   --text-80px: 5rem;
   --text-96px: 6rem;
-  --text-100px: 6.25rem;
   --text-144px: 9rem;
 
   --container-content: 69.375rem; /* 1110px */
@@ -77,10 +74,6 @@
 
 @utility text-preset-1 {
   @apply font-bellefair font-normal text-144px leading-[normal] tracking-normal;
-}
-
-@utility text-preset-2 {
-  @apply font-bellefair font-normal text-100px leading-[normal] tracking-normal;
 }
 
 @utility text-preset-3 {
@@ -163,7 +156,7 @@
   .nav-link {
     @apply relative block py-9
   focus-visible:outline-hidden
-  before:content-[''] before:absolute before:inset-x-0 before:inset-y-7 before:pointer-events-none
+  before:content-[''] before:absolute before:-inset-x-1 before:inset-y-7 before:pointer-events-none
   focus-visible:before:outline-2 focus-visible:before:outline-white
   after:content-[''] after:absolute after:inset-x-0 after:bottom-0
   after:h-[3px] after:bg-white/50
@@ -245,5 +238,39 @@
     motion-reduce:after:transition-none
     not-aria-[current=page]:hocus:after:bg-white/50
     aria-[current=page]:after:bg-white;
+  }
+
+  .tab-text {
+    @apply relative block pb-3.75 cursor-pointer
+    focus-visible:outline-hidden
+    before:content-[''] before:absolute before:-inset-x-1 before:inset-y-px before:pointer-events-none
+    focus-visible:before:outline-2 focus-visible:before:outline-white
+    after:content-[''] after:absolute after:inset-x-0 after:bottom-0
+    after:h-[3px] after:bg-white/50
+    after:origin-center after:scale-x-0
+    after:transition-transform after:duration-300 after:ease-out
+    motion-reduce:after:transition-none
+    hocus:after:scale-x-100 hocus:text-white
+    aria-selected:after:scale-x-100 aria-selected:after:bg-white aria-selected:text-white;
+  }
+
+  .tab-dot {
+    @apply relative size-2.5 cursor-pointer rounded-full bg-white/17 transition-colors duration-300 motion-reduce:transition-none after:absolute after:-inset-2 after:content-[''] aria-selected:bg-white not-aria-selected:hocus:bg-white/50 xl:size-3.75;
+  }
+
+  .tab-number {
+    @apply cursor-pointer size-10 rounded-full bg-transparent text-preset-20 border border-white/25 transition-colors duration-300 motion-reduce:transition-none aria-selected:bg-white aria-selected:text-dark-blue not-aria-selected:hocus:bg-transparent not-aria-selected:hocus:border-white md:size-14 md:text-preset-21 xl:size-20 xl:text-preset-4;
+  }
+
+  .panel-text {
+    @apply text-preset-11 text-light-blue md:text-preset-13 xl:text-preset-9;
+  }
+
+  .panel-subtitle {
+    @apply text-preset-20 text-white/50 md:text-preset-21 xl:text-preset-4;
+  }
+
+  .panel-title {
+    @apply text-preset-21 md:text-preset-22 xl:text-preset-3;
   }
 }
