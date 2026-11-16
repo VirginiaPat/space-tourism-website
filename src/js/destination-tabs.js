@@ -9,6 +9,7 @@ import data from "../data.json";
 import { getElement, query, queryAll } from "./dom.js";
 import { assertImagesFor, destinationImages } from "./images.js";
 import { initTabs } from "./tabs.js";
+import { fadeUp, swapImage } from "./animations.js";
 
 const { destinations } = data;
 
@@ -37,12 +38,22 @@ const renderDestination = (index, tab) => {
   const destination = destinations[index];
 
   elements.panel.setAttribute("aria-labelledby", tab.id);
-  elements.image.src = destinationImages[destination.name];
-  elements.image.alt = `Image of ${destination.name}`;
   elements.name.textContent = destination.name;
   elements.description.textContent = destination.description;
   elements.distance.textContent = destination.distance;
   elements.travel.textContent = destination.travel;
+
+  swapImage(
+    elements.image,
+    destinationImages[destination.name],
+    `Image of ${destination.name}`,
+  );
+  fadeUp([
+    elements.name,
+    elements.description,
+    elements.distance,
+    elements.travel,
+  ]);
 };
 
 /**

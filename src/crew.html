@@ -9,7 +9,7 @@
     data-page="crew"
     class="relative isolate min-h-dvh flex flex-col bg-dark-blue text-white"
   >
-    <picture
+    <picture class="absolute inset-0 -z-10 overflow-clip"
       ><source
         media="(min-width: 80rem)"
         srcset="./assets/crew/background-crew-desktop.jpg"
@@ -22,7 +22,7 @@
         src="./assets/crew/background-crew-mobile.jpg"
         alt=""
         decoding="async"
-        class="absolute inset-0 -z-10 size-full object-cover"
+        class="size-full object-cover animate-zoom-out motion-reduce:animate-none"
       />
     </picture>
 

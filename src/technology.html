@@ -9,7 +9,7 @@
     data-page="technology"
     class="relative isolate min-h-dvh flex flex-col bg-dark-blue text-white"
   >
-    <picture
+    <picture class="absolute inset-0 -z-10 overflow-clip"
       ><source
         media="(min-width: 80rem)"
         srcset="./assets/technology/background-technology-desktop.jpg"
@@ -22,7 +22,7 @@
         src="./assets/technology/background-technology-mobile.jpg"
         alt=""
         decoding="async"
-        class="absolute inset-0 -z-10 size-full object-cover"
+        class="size-full object-cover animate-zoom-out motion-reduce:animate-none"
       />
     </picture>
 
@@ -89,6 +89,7 @@
                 id="launch-vehicle-tab"
                 aria-label="1: Launch vehicle"
                 aria-selected="true"
+                tabindex="0"
                 aria-controls="technology-panel"
                 class="tab-number"
               >
