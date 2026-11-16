@@ -11,6 +11,7 @@ import data from "../data.json";
 import { getElement, query, queryAll } from "./dom.js";
 import { assertImagesFor, technologyImages } from "./images.js";
 import { initTabs } from "./tabs.js";
+import { fadeUp, swapImage } from "./animations.js";
 
 const { technology } = data;
 
@@ -64,6 +65,10 @@ const renderTechnology = (index, tab) => {
   elements.image.alt = `Image of ${item.name}`;
   elements.name.textContent = item.name;
   elements.description.textContent = item.description;
+
+  swapImage(elements.image, images.landscape, `Image of ${item.name}`);
+
+  fadeUp([elements.name, elements.description]);
 };
 
 /**

@@ -9,6 +9,7 @@ import data from "../data.json";
 import { getElement, query, queryAll } from "./dom.js";
 import { assertImagesFor, crewImages } from "./images.js";
 import { initTabs } from "./tabs.js";
+import { fadeUp, swapImage } from "./animations.js";
 
 const { crew } = data;
 
@@ -36,11 +37,16 @@ const renderCrewMember = (index, tab) => {
   const member = crew[index];
 
   elements.panel.setAttribute("aria-labelledby", tab.id);
-  elements.image.src = crewImages[member.name];
-  elements.image.alt = `Portrait of ${member.name}`;
   elements.role.textContent = member.role;
   elements.name.textContent = member.name;
   elements.bio.textContent = member.bio;
+
+  swapImage(
+    elements.image,
+    crewImages[member.name],
+    `Portrait of ${member.name}`,
+  );
+  fadeUp([elements.role, elements.name, elements.bio]);
 };
 
 /**
