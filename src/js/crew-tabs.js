@@ -46,7 +46,8 @@ const renderCrewMember = (index, tab) => {
 /**
  * Finds the elements and makes the tabs work.
  * @returns {void}
- * @throws {Error} If an element is missing, a crew member has no image, or the number of tabs does not match the number of crew members in `data.json`.
+ * @throws {Error} If an element is missing, a crew member has no image, or the
+ * number of tabs does not match the number of crew members in `data.json`.
  */
 export const initCrewTabs = () => {
   assertImagesFor(

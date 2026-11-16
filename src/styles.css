@@ -259,7 +259,7 @@
   }
 
   .tab-number {
-    @apply cursor-pointer size-10 rounded-full bg-transparent text-preset-20 border border-white/25 transition-colors duration-300 motion-reduce:transition-none aria-selected:bg-white aria-selected:text-dark-blue not-aria-selected:hocus:bg-transparent not-aria-selected:hocus:border-white md:size-14 md:text-preset-21 xl:size-20 xl:text-preset-4;
+    @apply cursor-pointer size-10 rounded-full bg-transparent text-preset-20 border border-white/25 transition-colors duration-300 motion-reduce:transition-none focus-visible:outline-white aria-selected:bg-white aria-selected:text-dark-blue not-aria-selected:hocus:bg-transparent not-aria-selected:hocus:border-white md:size-14 md:text-preset-21 xl:size-20 xl:text-preset-4;
   }
 
   .panel-text {

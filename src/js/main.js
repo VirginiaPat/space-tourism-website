@@ -10,6 +10,7 @@ import { initMenu } from "./ham-menu.js";
 import { initHeaderScroll } from "./header-scroll.js";
 import { initCrewTabs } from "./crew-tabs.js";
 import { initDestinationTabs } from "./destination-tabs.js";
+import { initTechnologyTabs } from "./technology-tabs.js";
 
 /**
  * Starts one feature and logs its error, if any, without rethrowing.
@@ -29,6 +30,7 @@ const startFeature = (name, init) => {
 const pageFeatures = {
   destination: [["destination tabs", initDestinationTabs]],
   crew: [["crew tabs", initCrewTabs]],
+  technology: [["technology tabs", initTechnologyTabs]],
 };
 
 /**

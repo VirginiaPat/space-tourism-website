@@ -6,6 +6,7 @@
   </head>
 
   <body
+    data-page="technology"
     class="relative isolate min-h-dvh flex flex-col bg-dark-blue text-white"
   >
     <picture
@@ -54,14 +55,16 @@
           <div class="pt-16 xl:order-last xl:w-152 xl:shrink-0 xl:pt-0">
             <picture>
               <source
+                id="technology-image-source"
                 media="(min-width: 80rem)"
                 srcset="./assets/technology/image-launch-vehicle-portrait.jpg"
                 width="515"
                 height="527"
               />
               <img
+                id="technology-image"
                 src="./assets/technology/image-launch-vehicle-landscape.jpg"
-                alt="Launch vehicle on the launch pad"
+                alt=""
                 width="768"
                 height="310"
                 fetchpriority="high"
@@ -86,7 +89,7 @@
                 id="launch-vehicle-tab"
                 aria-label="1: Launch vehicle"
                 aria-selected="true"
-                aria-controls="launch-vehicle-content"
+                aria-controls="technology-panel"
                 class="tab-number"
               >
                 1
@@ -99,7 +102,7 @@
                 aria-label="2: Spaceport"
                 aria-selected="false"
                 tabindex="-1"
-                aria-controls="spaceport-content"
+                aria-controls="technology-panel"
                 class="tab-number"
               >
                 2
@@ -112,7 +115,7 @@
                 aria-label="3: Space capsule"
                 aria-selected="false"
                 tabindex="-1"
-                aria-controls="space-capsule-content"
+                aria-controls="technology-panel"
                 class="tab-number"
               >
                 3
@@ -121,19 +124,21 @@
             <!-- Tabpanels -->
             <div id="tabpanels" class="md:px-22 xl:min-w-0 xl:flex-1 xl:px-0">
               <div
-                id="launch-vehicle-content"
+                id="technology-panel"
                 role="tabpanel"
                 tabindex="0"
                 aria-labelledby="launch-vehicle-tab"
-                class="flex flex-col items-center gap-6 xl:items-start"
+                class="flex flex-col items-center gap-6 xl:items-start focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-8"
               >
                 <h2
                   class="uppercase flex flex-col items-center justify-center gap-2 xl:items-start"
                 >
                   <span class="panel-subtitle">The terminology...</span
-                  ><span class="panel-title">Launch vehicle</span>
+                  ><span id="technology-name" class="panel-title"
+                    >Launch vehicle</span
+                  >
                 </h2>
-                <p class="panel-text">
+                <p id="technology-description" class="panel-text">
                   A launch vehicle or carrier rocket is a rocket-propelled
                   vehicle used to carry a payload from Earth's surface to space,
                   usually to Earth orbit or beyond. Our WEB-X carrier rocket is
