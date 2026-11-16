@@ -8,6 +8,7 @@
 import { initCurrentPage } from "./current-page.js";
 import { initMenu } from "./ham-menu.js";
 import { initHeaderScroll } from "./header-scroll.js";
+import { initCrewTabs } from "./crew-tabs.js";
 import { initDestinationTabs } from "./destination-tabs.js";
 
 /**
@@ -27,6 +28,7 @@ const startFeature = (name, init) => {
 /** Features that only exist on one page, keyed by `data-page` on the body. */
 const pageFeatures = {
   destination: [["destination tabs", initDestinationTabs]],
+  crew: [["crew tabs", initCrewTabs]],
 };
 
 /**

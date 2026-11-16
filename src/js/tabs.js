@@ -70,6 +70,9 @@ export const initTabs = (tablist, onSelect) => {
    * @returns {void}
    */
   const handleKeydown = (event) => {
+    if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey)
+      return;
+
     const index = tabs.findIndex((tab) => tab === event.target);
     if (index === -1) return;
 
