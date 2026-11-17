@@ -60,13 +60,15 @@ const renderTechnology = (index, tab) => {
   const images = technologyImages[item.name];
 
   elements.panel.setAttribute("aria-labelledby", tab.id);
-  elements.imageSource.srcset = images.portrait;
-  elements.image.src = images.landscape;
-  elements.image.alt = `Image of ${item.name}`;
   elements.name.textContent = item.name;
   elements.description.textContent = item.description;
 
-  swapImage(elements.image, images.landscape, `Image of ${item.name}`);
+  swapImage(elements.image, images.landscape, `Image of ${item.name}`, {
+    preload: verticalQuery.matches ? images.portrait : images.landscape,
+    onSwap: () => {
+      elements.imageSource.srcset = images.portrait;
+    },
+  });
 
   fadeUp([elements.name, elements.description]);
 };

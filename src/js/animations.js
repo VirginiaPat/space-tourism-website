@@ -66,26 +66,38 @@ export const fadeUp = (elements, { duration = 400, stagger = 80 } = {}) => {
 /**
  * Swaps the image and fades the new one in. The new file is decoded first, so
  * the animation never plays on the old picture or on an empty frame.
+ * The caller must not set `image.src` itself: this function does it.
  * @param {HTMLImageElement} image
  * @param {string} src
  * @param {string} alt
  * @param {Object} [options]
  * @param {number} [options.duration=500] - In milliseconds.
+ * @param {string} [options.preload=src] - The file that will actually be
+ * shown, when it is not `src`. Needed for a `<picture>` whose `<source>`
+ * wins over the `<img>` on some screens.
+ * @param {() => void} [options.onSwap] - Runs together with the swap, e.g. to
+ * update the `srcset` of a `<source>`.
  * @returns {Promise<void>}
  */
-export const swapImage = async (image, src, alt, { duration = 500 } = {}) => {
-  latestSource.set(image, src);
-
+export const swapImage = async (
+  image,
+  src,
+  alt,
+  { duration = 500, preload = src, onSwap } = {},
+) => {
   if (reducedMotion.matches) {
     image.src = src;
     image.alt = alt;
+    onSwap?.();
     return;
   }
 
+  latestSource.set(image, src);
+
   try {
-    const preload = new Image();
-    preload.src = src;
-    await preload.decode();
+    const probe = new Image();
+    probe.src = preload;
+    await probe.decode();
   } catch {
     // A failed decode must not block the swap: show the image as usual.
   }
@@ -94,6 +106,7 @@ export const swapImage = async (image, src, alt, { duration = 500 } = {}) => {
 
   image.src = src;
   image.alt = alt;
+  onSwap?.();
   play(
     image,
     [
