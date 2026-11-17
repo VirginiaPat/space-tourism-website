@@ -43,11 +43,7 @@ const renderDestination = (index, tab) => {
   elements.distance.textContent = destination.distance;
   elements.travel.textContent = destination.travel;
 
-  swapImage(
-    elements.image,
-    destinationImages[destination.name],
-    `Image of ${destination.name}`,
-  );
+  swapImage(elements.image, destinationImages[destination.name]);
   fadeUp([
     elements.name,
     elements.description,

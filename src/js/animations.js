@@ -67,36 +67,43 @@ export const fadeUp = (elements, { duration = 400, stagger = 80 } = {}) => {
  * Swaps the image and fades the new one in. The new file is decoded first, so
  * the animation never plays on the old picture or on an empty frame.
  * The caller must not set `image.src` itself: this function does it.
+ * The image has no alt text of its own (`alt=""`): the panel heading next to
+ * it already names what it shows.
  * @param {HTMLImageElement} image
  * @param {string} src
- * @param {string} alt
  * @param {Object} [options]
  * @param {number} [options.duration=500] - In milliseconds.
- * @param {string} [options.preload=src] - The file that will actually be
- * shown, when it is not `src`. Needed for a `<picture>` whose `<source>`
- * wins over the `<img>` on some screens.
- * @param {() => void} [options.onSwap] - Runs together with the swap, e.g. to
- * update the `srcset` of a `<source>`.
+ * @param {HTMLSourceElement} [options.source] - A `<source>` of the same
+ * `<picture>`. When its `media` matches, the browser shows `sourceSrc` and not
+ * `src`, so that is the file to decode before the fade.
+ * @param {string} [options.sourceSrc] - New `srcset` for `source`.
  * @returns {Promise<void>}
  */
 export const swapImage = async (
   image,
   src,
-  alt,
-  { duration = 500, preload = src, onSwap } = {},
+  { duration = 500, source, sourceSrc } = {},
 ) => {
-  if (reducedMotion.matches) {
+  const apply = () => {
+    if (source && sourceSrc) source.srcset = sourceSrc;
     image.src = src;
-    image.alt = alt;
-    onSwap?.();
+  };
+
+  if (reducedMotion.matches) {
+    apply();
     return;
   }
 
   latestSource.set(image, src);
 
+  const shownSrc =
+    source && sourceSrc && window.matchMedia(source.media).matches
+      ? sourceSrc
+      : src;
+
   try {
     const probe = new Image();
-    probe.src = preload;
+    probe.src = shownSrc;
     await probe.decode();
   } catch {
     // A failed decode must not block the swap: show the image as usual.
@@ -104,9 +111,7 @@ export const swapImage = async (
 
   if (latestSource.get(image) !== src) return;
 
-  image.src = src;
-  image.alt = alt;
-  onSwap?.();
+  apply();
   play(
     image,
     [

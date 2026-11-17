@@ -41,11 +41,7 @@ const renderCrewMember = (index, tab) => {
   elements.name.textContent = member.name;
   elements.bio.textContent = member.bio;
 
-  swapImage(
-    elements.image,
-    crewImages[member.name],
-    `Portrait of ${member.name}`,
-  );
+  swapImage(elements.image, crewImages[member.name]);
   fadeUp([elements.role, elements.name, elements.bio]);
 };
 

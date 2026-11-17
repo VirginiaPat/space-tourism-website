@@ -63,11 +63,9 @@ const renderTechnology = (index, tab) => {
   elements.name.textContent = item.name;
   elements.description.textContent = item.description;
 
-  swapImage(elements.image, images.landscape, `Image of ${item.name}`, {
-    preload: verticalQuery.matches ? images.portrait : images.landscape,
-    onSwap: () => {
-      elements.imageSource.srcset = images.portrait;
-    },
+  swapImage(elements.image, images.landscape, {
+    source: elements.imageSource,
+    sourceSrc: images.portrait,
   });
 
   fadeUp([elements.name, elements.description]);
